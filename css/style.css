@@ -1,0 +1,384 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+.contenedor{
+    display: grid;
+    grid-template-areas: "header"
+                          "nav"
+                          "transformacion"
+                          "animacion"
+                          "canvas"
+                          "svg"
+                          "footer";
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1.1em;
+    font-weight: 200;
+    
+}
+
+  /*-------------------------------------------------------------
+                              CABECERA
+  --------------------------------------------------------------*/
+
+header{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    height: 180px;
+    background-color:rgba(0, 174, 255, 0.178);
+    padding-bottom: 10px;
+    grid-area: header;
+   
+}
+
+.foto{
+    width: 150px;
+    margin: 20px;
+    
+    
+}
+
+h1{
+  padding-right: 200px;
+}
+  /*-------------------------------------------------------------
+                              NAVEGACIÓN
+  --------------------------------------------------------------*/
+
+  nav {
+    background-color: rgba(150, 155, 155, 0.404);
+    grid-area: nav;
+    font-family: 'Didact Gothic', sans-serif;
+    padding:20px;
+    
+  }
+  
+  /* Dando formato a lista */ 
+  ul{
+    display: grid;
+    grid-template-columns: 5% 5% 5% 5%;
+    justify-content: center;
+    list-style-type: none;
+    
+  
+  }
+
+  li a {
+    text-decoration: none;
+    
+  }
+
+  .menu {
+    display: grid;
+    align-content: center;
+    position: relative;
+    height: 60px;
+    width: 120px;
+    margin: 10px;
+    overflow: hidden;
+    
+  }
+  
+  /* Bordes superiores */
+  
+  .menu.salmon {
+    border-top: #FF6D60 0.3em solid;
+  }
+  
+  .menu.amarillo {
+    border-top: #F7D060 0.3em solid;
+  }
+  
+  .menu.amarilloc{
+    border-top: #F3E99F 0.3em solid;
+  }
+  
+  .menu.verde {
+    border-top: #98D8AA 0.3em solid;
+  }
+  
+  /* Atributos y transición */
+  
+  .menu > span {
+    display: grid;
+    align-content: center;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    /*Efecto de transición que dura medio segundo con un inicio y final lento*/ 
+    transition: 0.5s ease-in-out; 
+    /*Con el prefijo -webkit- nos aseguramos que funcione la transición en versiones antiguas de chrome*/
+    -webkit-transition: 0.5s ease-in-out;
+  }
+  
+  .menu:after, .menu > span > span {
+    display: block;
+    text-align: center;
+    border-radius: 0em;
+    padding: 2em 0 1.5em;
+    
+  }
+  
+  .menu:after {
+    content: attr(data-title);
+    width: 100%;
+    background: rgb(56, 55, 55);
+    color: #fff; 
+  }
+  
+  .menu > span > span {
+    width: 120px;
+    color: black;
+    font-weight: bold;
+  }
+  
+  /*Color de fondo del menú cuando pulsemos encima*/
+  .menu.salmon > span > span {
+    background: #FF6D60;
+  }
+  
+  .menu.amarillo > span > span {
+    background: #F7D060;
+  }
+  
+  .menu.amarilloc > span > span {
+    background: #F3E99F;
+  }
+  
+  .menu.verde > span > span {
+      background: #98D8AA;
+  }
+  
+  /* Lo que pasa con hover */
+  .menu:hover > span {
+      height: 99%; 
+  }
+  
+  /*Bordes superiores al pasar el ratón*/
+  .menu.salmon:hover, .menu.amarillo:hover, .menu.amarilloc:hover, .menu.verde:hover{
+    border-top: rgb(56, 55, 55) solid 4px;
+  }
+
+
+
+  /*-------------------------------------------------------------
+                              CONTENIDO
+  --------------------------------------------------------------*/
+
+ 
+  /*-----------------------------------------------------------*/
+  /*           ZONA DE TRANSFORMACIONES Y TRANSICIONES         */
+  /*-----------------------------------------------------------*/
+
+  .transformacion{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 50px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    grid-area: transformacion;
+    
+    
+  }
+
+  h3{
+    font-family: Arial, Helvetica, sans-serif;
+    grid-area: h3;
+  }
+
+  .contenedor1, .contenedor2, .contenedor3, .contenedor4{
+    /*Contenedor de 125px de ancho x 125px de alto*/
+    width: 125px; 
+    height: 125px;
+   
+  }
+
+  .foto1, .foto2, .foto3, .foto4{
+    width: 125px;
+    height: 125px
+  }
+
+  .contenedor1:hover {
+    /* Modificar la escala del contenedor */
+    transform: scale(1.2);
+  }
+
+  .contenedor2:hover {
+    /* Modificar la rotación del contenedor */
+    transform: rotate(45deg);
+  }
+
+  .contenedor3:hover {
+    /* Modificar la posición del elemento mediante "translate" */
+    transform: translate(10px, 10px);
+  }
+  
+  .contenedor4:hover {
+    /* Distorsionar el contenedor mediante "skew" */
+    transform: skew(20deg, 10deg);
+  }
+
+
+
+  /*---------------------------------------------*/
+  /*         ANIMACIONES HTML5 Y CSS3            */
+  /*---------------------------------------------*/
+
+  .animacion {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(255, 228, 196, 0.171);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    grid-area: animacion;
+    
+    
+  }
+  
+  .movil {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%); /*Desplaza el elemento horizontalmente*/
+    width: 200px;
+    height: 350px;
+    background-color: white;
+    border-radius: 20px;
+    border: solid 2px black;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    animation: movil 3s linear; /*Animación que he creado con keyframes*/
+  }
+
+  .pantalla {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .texto {
+    position: absolute;
+    top: 10%;
+    font-size: 20px;
+    font-weight: bold;
+    animation: texto 3s ease forwards 4s; /*Animación que he creado con keyframes*/
+    opacity: 0; /*Opacidad a 0 para que no se vea el elemento hasta que no llege al final de la transición*/
+    color:brown;
+  }
+
+  .logo {
+    position: absolute;
+    top: 40%;
+    animation: logo 3s ease forwards 7s;
+    opacity: 0; /*Opacidad a 0 para que no se vea el elemento hasta que no llege al final de la transición*/
+    width: 100%;
+    height: 50%;
+  }
+
+
+
+  .eslogan {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0; /*Opacidad a 0 para que no se vea el elemento hasta que no llege al final de la transición*/
+    animation: eslogan 0.5s ease forwards 9s;
+    color:yellowgreen;
+  }
+  
+  @keyframes movil {
+    0% {
+      top: -200px;
+    }
+    50% {
+      transform: translate(-50%, 50%);
+    }
+    /*Movimiento de rotación para la pantalla del móvil*/
+    70% {
+      transform: rotate(90deg);
+    }
+    90% {
+      transform: rotate(180deg);
+    }
+    100%{ 
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes texto {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes logo {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes eslogan {
+    0% {
+      top: -50px;
+      opacity: 0;
+    }
+    100% {
+      top: 10%;
+      opacity: 1;
+    }
+  }
+
+
+  /*-----------------------------------------------------------*/
+  /*                          CANVAS                           */
+  /*-----------------------------------------------------------*/
+
+  .canvas{
+    display: grid;
+    justify-content: center;
+    padding-left: 1000px;
+    grid-area: canvas;
+  }
+
+  /*-----------------------------------------------------------*/
+  /*                    ANIMACIONES CON SVG                    */
+  /*-----------------------------------------------------------*/
+
+ .svg{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 120px;
+  grid-area: svg;
+ }
+
+
+  /*-----------------------------------------------------------*/
+  /*                           FOOTER                          */
+  /*-----------------------------------------------------------*/
+
+  footer{
+    padding: 50px;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    grid-area: footer;
+  }
