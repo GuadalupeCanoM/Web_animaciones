@@ -1,7 +1,8 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el tamaño total del elemento */
+    max-width: 100%;
+    
 }
 
 html, body {
@@ -28,14 +29,17 @@ html, body {
 --------------------------------------------------------------*/
 
 header {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    align-content: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
     height: 180px;
     background-color: rgba(0, 174, 255, 0.178);
     padding-bottom: 10px;
     grid-area: header;
 }
+
 
 .foto {
     width: 150px;
@@ -57,12 +61,22 @@ nav {
     padding: 20px;
 }
 
+/* Centrar la navegación */
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
 /* Dando formato a lista */ 
 ul {
     display: grid;
-    grid-template-columns: 5% 5% 5% 5%;
+    grid-template-columns: repeat(4, minmax(100px, 150px));
+    gap: 2rem;
     justify-content: center;
     list-style-type: none;
+    
+   
 }
 
 li a {
@@ -336,11 +350,24 @@ h3 {
 /*-----------------------------------------------------------*/
 
 .canvas {
-    display: grid;
+    display: flex;
     justify-content: center;
-    padding-left: 1000px;
+    align-items: center;
     grid-area: canvas;
+    width: 100%;
+    min-height: 250px; 
+   
 }
+
+canvas {
+    width: 80%; 
+    max-width: 1800px;
+    height: 250px;
+    margin: 0 auto;
+    display: block;
+    
+}
+
 
 /*-----------------------------------------------------------*/
 /*                    ANIMACIONES CON SVG                    */
@@ -363,4 +390,11 @@ footer {
     display: flex;
     justify-content: center;
     grid-area: footer;
+}
+
+/* Centrar el contenido */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Opcional, para centrar verticalmente */
 }
